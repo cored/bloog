@@ -1,4 +1,3 @@
-require 'minitest/autorun'
 require 'ostruct'
 require 'date'
 require_relative '../spec_helper_lite'

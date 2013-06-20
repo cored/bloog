@@ -105,4 +105,16 @@ describe Post do
     @it.title = "x"
     assert @it.valid?
   end
+
+  describe "#picture?" do 
+    it "is true when the post has a picture URL" do 
+      @it.image_url = "http://example.org/foo.png"
+      assert(@it.picture?)
+    end
+
+    it "is false when the post has no picture URL" do 
+      @it.image_url = ""
+      refute(@it.picture?)
+    end
+  end
 end

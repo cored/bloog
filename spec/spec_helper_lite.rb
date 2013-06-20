@@ -1,3 +1,5 @@
+require 'ostruct'
+require 'minitest/autorun'
 require 'rr'
 
 class MiniTest::Unit::TestCase
@@ -12,4 +14,10 @@ def stub_module(full_name)
       context.const_set(name, Module.new)
     end
   end
+end
+
+def stub_class(name)
+    Object.const_get(name)
+  rescue NameError
+    Object.const_set(name, Class.new)
 end
