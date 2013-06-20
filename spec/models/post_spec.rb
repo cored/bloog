@@ -1,7 +1,6 @@
 require 'minitest/autorun'
 require_relative '../spec_helper_lite'
-stub_module 'ActiveModel::Conversion'
-stub_module 'ActiveModel::Naming'
+require 'active_model'
 require_relative '../../app/models/post'
 
 describe Post do 
@@ -77,5 +76,17 @@ describe Post do
       end
 
     end
+  end
+
+  it "is not valid with a blank title" do 
+    [nil, "", ""].each do |bad_title|
+      @it.title = bad_title
+      refute @it.valid?
+    end
+  end
+
+  it "is valid with a non-blank title" do 
+    @it.title = "x"
+    assert @it.valid?
   end
 end
