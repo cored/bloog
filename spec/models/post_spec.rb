@@ -35,22 +35,6 @@ describe Post do
     @it.blog.must_equal blog
   end
 
-  describe "#publish" do 
-    before do 
-      @blog = MiniTest::Mock.new
-      @it.blog = @blog
-    end
-
-    after do 
-      @blog.verify
-    end
-
-    it "adds the post to the blog" do 
-      @blog.expect :add_entry, nil, [@it]
-      @it.publish
-    end
-  end
-
   describe "#pubdate" do 
     describe "before publishing" do 
       it "is blank" do 
@@ -64,6 +48,7 @@ describe Post do
         @now = DateTime.parse("2011-09-11T02:56")
         stub(@clock).now() {@now}
         @it.blog = stub!
+        @it.title = 'title'
         @it.publish(@clock)
       end
 
@@ -77,6 +62,37 @@ describe Post do
 
     end
   end
+
+  describe "#publish" do 
+    before do 
+      @blog = MiniTest::Mock.new
+      @it.title = 'title'
+      @it.blog = @blog
+    end
+
+    after do 
+      @blog.verify
+    end
+
+    it "adds the post to the blog" do 
+      @blog.expect :add_entry, nil, [@it]
+      @it.publish
+    end
+
+    describe "given an invalid post" do 
+      before { @it.title = nil }
+
+      it "wont add the post to the blog" do 
+        dont_allow(@blog).add_entry
+        @it.publish
+      end
+
+      it "returns false" do 
+        refute(@it.publish)
+      end
+    end
+  end
+
 
   it "is not valid with a blank title" do 
     [nil, "", ""].each do |bad_title|
