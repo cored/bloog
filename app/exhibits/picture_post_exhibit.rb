@@ -1,10 +1,5 @@
 require 'delegate'
-class PicturePostExhibit < SimpleDelegator
-
-  def initialize(model, context)
-    @context = context 
-    super(model)
-  end
+class PicturePostExhibit < Exhibit
 
   def render_body 
     @context.render(partial: "/posts/picture_body", locals: { post: self })
