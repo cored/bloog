@@ -1,4 +1,5 @@
-require 'delegate'
+require_relative 'exhibit'
+
 class PicturePostExhibit < Exhibit
 
   def render_body 

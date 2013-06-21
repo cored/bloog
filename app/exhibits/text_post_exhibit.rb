@@ -1,4 +1,4 @@
-require 'delegate'
+require_relative  'exhibit'
 
 class TextPostExhibit < Exhibit
   def render_body
