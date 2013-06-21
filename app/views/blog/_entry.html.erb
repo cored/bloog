@@ -1,7 +1,8 @@
+<% entry = exhibit(entry, self) %>
 <article>
   <header>
   <p><time pubdate="pubdate"><%= entry.pubdate %></time></p>
     <h3><%= entry.title %></h3>
   </header>
-  <p><%= entry.body %></p>
+  <%= entry.render_body %>
 </article>

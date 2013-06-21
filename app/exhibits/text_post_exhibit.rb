@@ -3,7 +3,7 @@ require 'delegate'
 class TextPostExhibit < SimpleDelegator
 
   def initialize(model, context)
-    @context = context
+    @context = context 
     super(model)
   end
 

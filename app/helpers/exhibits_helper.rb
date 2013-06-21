@@ -10,6 +10,5 @@ module ExhibitsHelper
     else
       model
     end
-
   end
 end
