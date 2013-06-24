@@ -1,0 +1,17 @@
+/home/homer/code/ruby/rails_projects/bloog/
+▸ app/
+▸ config/
+▸ db/
+▸ doc/
+▸ lib/
+▸ log/
+▸ public/
+▸ script/
+▸ spec/
+▸ tmp/
+▸ vendor/
+  config.ru
+  Gemfile
+  Gemfile.lock
+  Rakefile
+  README.rdoc

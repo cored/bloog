@@ -6,12 +6,7 @@ require_relative '../../app/models/post'
 describe Post do 
   before do 
     @it = Post.new
-  end
-
-  it "supports settings attributes in the initializer" do 
-    it = Post.new(title: 'mytitle', body: 'mybody')
-    it.title.must_equal 'mytitle'
-    it.body.must_equal 'mybody'
+    @ar = @it
   end
 
   it "starts with blank attributes" do 
@@ -116,5 +111,10 @@ describe Post do
       @it.image_url = ""
       refute(@it.picture?)
     end
+  end
+
+  it "defaults body to 'Nothing to see here'" do 
+    post = make_post(body: '')
+    post.body.must_equal('Nothing to see here')
   end
 end

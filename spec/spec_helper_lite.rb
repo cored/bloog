@@ -2,6 +2,14 @@ require 'ostruct'
 require 'minitest/autorun'
 require 'rr'
 
+def setup_nulldb
+  schema_path = File.expand_path('../db/schema.rb', File.dirname(__FILE__))
+end
+
+def teardown_nulldb
+  NullDB.restore
+end
+
 def stub_module(full_name, &block)
   stub_class_or_module(full_name, Module)
 end

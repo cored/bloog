@@ -6,9 +6,11 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'fig_leaf'
 
 group :development, :test do 
   gem 'rr'
+  gem 'database_cleaner'
 end
 
 
