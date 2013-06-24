@@ -16,7 +16,3 @@ namespace 'test' do |ns|
     t.verbose = true
   end
 end
-# Clear out the default Rails dependencies
-Rake::Task['test'].clear
-desc "Run all tests"
-task 'test' => %w[test:unit test:integration]
