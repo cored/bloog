@@ -13,6 +13,11 @@ group :development, :test do
   gem 'database_cleaner'
 end
 
+group :development do 
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
 
 # Gems used only for assets and not required
 # in production environments by default.

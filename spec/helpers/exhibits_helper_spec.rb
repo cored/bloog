@@ -1,8 +1,9 @@
-require_relative '../spec_helper_lite'
 require_relative '../../app/helpers/exhibits_helper'
+require_relative '../../app/exhibits/text_post_exhibit'
+require_relative '../../app/exhibits/picture_post_exhibit'
+require_relative '../../app/exhibits/link_exhibit'
+require_relative '../spec_helper_lite'
 
-stub_class 'PicturePostExhibit'
-stub_class 'TextPostExhibit'
 stub_class 'Post'
 
 describe ExhibitsHelper do 

@@ -5,7 +5,7 @@ class TextPostExhibit < Exhibit
     @context.render(partial: "/posts/text_body", locals: {post:self})
   end
 
-  def applicable_to?
+  def self.applicable_to?(object)
     object.is_a?(Post) && (!object.picture?)
   end
 end

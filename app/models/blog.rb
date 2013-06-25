@@ -27,6 +27,10 @@ class Blog
     fetch_entries
   end
 
+  def self.model_name
+    ActiveModel::Name.new(self)
+  end
+
   private
   def post_source
     @post_source ||= Post.public_method(:new)
