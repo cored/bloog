@@ -1,6 +1,5 @@
 require 'date'
 require 'active_record'
-require 'fig_leaf'
 
 class Post < ActiveRecord::Base
   validates :title, presence: true
