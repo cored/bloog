@@ -23,7 +23,6 @@ class Exhibit < SimpleDelegator
 
   def self.exhibit(object, context)
     exhibits.inject(object) do |object, exhibit|
-      require 'pry'; binding.pry  
       exhibit.exhibit_if_applicable(object, context)
     end
   end

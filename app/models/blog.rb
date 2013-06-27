@@ -37,6 +37,6 @@ class Blog
   end
 
   def fetch_entries
-    @entries_fetcher.()
+    @entry_fetcher.()
   end
 end

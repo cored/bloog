@@ -3,16 +3,10 @@ require 'active_record'
 require 'fig_leaf'
 
 class Post < ActiveRecord::Base
-  include FigLeaf
-  hide ActiveRecord::Base, ancestors: true,
-      except: [Object, :init_with, :new_record?,
-              :errors, :valid?, :save]
-  hide_singletons ActiveRecord::Calculations,
-                  ActiveRecord::FinderMethods,
-                  ActiveRecord::Relation
   validates :title, presence: true
 
   attr_accessor :blog
+  attr_accessible :pubdate, :title, :body, :image_url
 
   def publish(clock=DateTime)
     return false unless valid?
